@@ -11,9 +11,12 @@ namespace ApiNetCoreProject2
     // See this for example adding unit tests https://code-maze.com/unit-testing-aspnetcore-web-api/
     public class UserManagerService : IUserManagerService
     {
-        public UserModel Add(UserModel newUser)
-        {
-            throw new NotImplementedException();
+        static List<UserModel> userList = new List<UserModel>();
+        public UserModel Add(UserModel user)
+        {   
+            user.UserId = System.Guid.NewGuid();
+            userList.Add(user);
+            return user;
         }
 
         public void Delete(Guid userId)
@@ -23,10 +26,8 @@ namespace ApiNetCoreProject2
 
         public IEnumerable<UserModel> GetAllUsers()
         {
-            List<UserModel> userList = new List<UserModel>();
-            UserModel user = new UserModel();
-            user.UserId = System.Guid.NewGuid();
-            userList.Add(user);
+            //List<UserModel> userList = new List<UserModel>();
+            
             return userList;
         }
 

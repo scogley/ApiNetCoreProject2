@@ -33,6 +33,11 @@ namespace ApiNetCoreProject2.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] UserModel value)
         {
+            if (value == null)
+            {
+                return new BadRequestResult();
+            }
+
             var user = new UserModel();
             user.Email = value.Email;
             user.Password = value.Password;
@@ -41,5 +46,25 @@ namespace ApiNetCoreProject2.Controllers
 
             return CreatedAtAction(nameof(Get), user.UserId, user);
         }
+
+        // TODO
+        // PUT {guid} to update a user and return a 200 OK
+
+        // TODO
+        // GET {guid} to get a single user
+        // GET: api/Contacts/5
+        [HttpGet("{guid}", Name = "Get")]
+        public IActionResult Get(Guid guid)
+        {
+            var user = _service.GetAllUsers().FirstOrDefault(t => t.UserId == guid);
+            if (user == null)
+            {
+                return new NotFoundResult();
+            }
+            return Ok(user);
+        }
+
+        // TODO
+        // DELETE {guid} to delete a single user and return a 200 or 404 if the user is not found
     }
 }

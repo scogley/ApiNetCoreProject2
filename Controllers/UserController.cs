@@ -47,10 +47,22 @@ namespace ApiNetCoreProject2.Controllers
             return CreatedAtAction(nameof(Get), user.UserId, user);
         }
 
-        // TODO
         // PUT {guid} to update a user and return a 200 OK
+        [HttpPut("{guid}")]
+        public IActionResult Put(Guid guid, [FromBody] UserModel value)
+        {
+            var user = _service.GetAllUsers().FirstOrDefault(t => t.UserId == guid);
+            if (user == null)
+            {
+                return new NotFoundResult();
+            }
 
-        // TODO
+            user.Email = value.Email;
+            user.Password = value.Password;
+
+            return Ok(user);
+        }
+
         // GET {guid} to get a single user
         // GET: api/Contacts/5
         [HttpGet("{guid}", Name = "Get")]

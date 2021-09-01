@@ -20,12 +20,11 @@ namespace ApiNetCoreProject2.Controllers
         }
         #endregion
 
-        // GET api/values
+        // GET api/user
         [HttpGet]
         public IEnumerable Get()
         {
             var users = _service.GetAllUsers();
-            //return users.ToList()[0].UserId.ToString();
             return users;
         }
 
@@ -58,8 +57,8 @@ namespace ApiNetCoreProject2.Controllers
             return Ok(user);
         }
 
-        // GET {guid} to get a single user
-        // GET: api/Contacts/5
+        // GET {guid} to get a single user by unique id
+        // GET: api/user/guid-value-here
         [HttpGet("{guid}", Name = "Get")]
         public IActionResult Get(Guid guid)
         {
@@ -71,18 +70,18 @@ namespace ApiNetCoreProject2.Controllers
             return Ok(user);
         }
 
-        // TODO
         // DELETE {guid} to delete a single user and return a 200 or 404 if the user is not found
+        // DELETE: api/user/guid-value-here
         [HttpDelete("{guid}")]
         public IActionResult Delete(Guid guid)
         {
             List<UserModel> users = (List<UserModel>)_service.GetAllUsers();
             var user = _service.GetAllUsers().FirstOrDefault(t => t.UserId == guid);
-            
+
             if (user == null) return new NotFoundObjectResult(guid);
-            
+
             int numberOfUsersDeleted = users.RemoveAll(t => t.UserId == guid);
-            
+
             if (numberOfUsersDeleted == 1) return new OkResult();
             else return NotFound();
         }

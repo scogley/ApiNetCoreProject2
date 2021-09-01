@@ -31,13 +31,8 @@ namespace ApiNetCoreProject2.Controllers
         // POST: API/user
         [HttpPost]
         public IActionResult Post([FromBody] UserModel value)
-        {
-            var user = new UserModel();
-            user.Email = value.Email;
-            user.Password = value.Password;
-            user.CreatedDate = DateTime.UtcNow;
-            _service.Add(user);
-
+        {   
+            var user = _service.Add(value);
             return CreatedAtAction(nameof(Get), user.UserId, user);
         }
 

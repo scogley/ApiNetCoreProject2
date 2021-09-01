@@ -12,8 +12,12 @@ namespace ApiNetCoreProject2
     public class UserManagerService : IUserManagerService
     {
         static List<UserModel> userList = new List<UserModel>();
-        public UserModel Add(UserModel user)
-        {   
+        public UserModel Add(UserModel value)
+        {
+            var user = new UserModel();
+            user.Email = value.Email;
+            user.Password = value.Password;
+            user.CreatedDate = DateTime.UtcNow;
             user.UserId = System.Guid.NewGuid();
             userList.Add(user);
             return user;
@@ -38,7 +42,7 @@ namespace ApiNetCoreProject2
 
         public UserModel Update(Guid userId)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

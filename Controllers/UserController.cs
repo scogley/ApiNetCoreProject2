@@ -33,11 +33,6 @@ namespace ApiNetCoreProject2.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] UserModel value)
         {
-            if (value == null)
-            {
-                return new BadRequestResult();
-            }
-
             var user = new UserModel();
             user.Email = value.Email;
             user.Password = value.Password;

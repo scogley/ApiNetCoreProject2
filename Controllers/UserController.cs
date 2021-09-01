@@ -71,12 +71,25 @@ namespace ApiNetCoreProject2.Controllers
             var user = _service.GetAllUsers().FirstOrDefault(t => t.UserId == guid);
             if (user == null)
             {
-                return new NotFoundResult();
+                return new NotFoundObjectResult(guid);
             }
             return Ok(user);
         }
 
         // TODO
         // DELETE {guid} to delete a single user and return a 200 or 404 if the user is not found
+        [HttpDelete("{guid}")]
+        public IActionResult Delete(Guid guid)
+        {
+            List<UserModel> users = (List<UserModel>)_service.GetAllUsers();
+            var user = _service.GetAllUsers().FirstOrDefault(t => t.UserId == guid);
+            
+            if (user == null) return new NotFoundObjectResult(guid);
+            
+            int numberOfUsersDeleted = users.RemoveAll(t => t.UserId == guid);
+            
+            if (numberOfUsersDeleted == 1) return new OkResult();
+            else return NotFound();
+        }
     }
 }

@@ -126,3 +126,7 @@ C:\Users\sean\source\repos\ApiNetCoreProject2\tests\ApiNetCoreProject2.Tests\bin
 C:\Users\sean\source\repos\ApiNetCoreProject2\tests\ApiNetCoreProject2.Tests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
 C:\Users\sean\source\repos\ApiNetCoreProject2\tests\ApiNetCoreProject2.Tests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 C:\Users\sean\source\repos\ApiNetCoreProject2\tests\ApiNetCoreProject2.Tests\bin\Debug\netcoreapp3.1\Microsoft.Net.Http.Headers.dll
+C:\Users\sean\source\repos\ApiNetCoreProject2\tests\ApiNetCoreProject2.Tests\bin\Debug\netcoreapp3.1\FluentAssertions.dll
+C:\Users\sean\source\repos\ApiNetCoreProject2\tests\ApiNetCoreProject2.Tests\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\sean\source\repos\ApiNetCoreProject2\tests\ApiNetCoreProject2.Tests\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\sean\source\repos\ApiNetCoreProject2\tests\ApiNetCoreProject2.Tests\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll

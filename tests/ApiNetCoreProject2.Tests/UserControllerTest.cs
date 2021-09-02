@@ -4,6 +4,7 @@ using ApiNetCoreProject2.Models;
 using ApiNetCoreProject2.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using FluentAssertions;
 
 namespace ApiNetCoreProject2.Tests
 {
@@ -17,6 +18,7 @@ namespace ApiNetCoreProject2.Tests
             _service = new UserManagerService();
             _controller = new UserController(_service);
         }
+
 
         [TestMethod]
         public void GetSpecific_WhenCalledWithInvalidGuid_ReturnsNotFound()
@@ -44,7 +46,9 @@ namespace ApiNetCoreProject2.Tests
             var result = (OkObjectResult)_controller.Get(newUser.UserId);
 
             // Assert: Ok Object Result Code
-            Assert.AreEqual(result.StatusCode, new OkObjectResult("guid").StatusCode);
+            //Assert.AreEqual(result.StatusCode, new OkObjectResult("guid").StatusCode);
+
+            result.StatusCode.Should().Be(new OkObjectResult("guid").StatusCode);
         }
 
         [TestMethod]

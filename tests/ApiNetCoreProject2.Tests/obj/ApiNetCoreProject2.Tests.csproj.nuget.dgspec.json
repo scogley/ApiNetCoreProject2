@@ -112,6 +112,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            },
             "MSTest.TestAdapter": {
               "target": "Package",
               "version": "[2.1.1, )"

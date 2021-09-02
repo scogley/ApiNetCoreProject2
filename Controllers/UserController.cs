@@ -57,7 +57,8 @@ namespace ApiNetCoreProject2.Controllers
         [HttpGet("{guid}", Name = "Get")]
         public IActionResult Get(Guid guid)
         {
-            var user = _service.GetAllUsers().FirstOrDefault(t => t.UserId == guid);
+            var user = _service.GetById(guid);
+            
             if (user == null)
             {
                 return new NotFoundObjectResult(guid);

@@ -37,12 +37,12 @@ namespace ApiNetCoreProject2
 
         public UserModel GetById(Guid userId)
         {
-            throw new NotImplementedException();
+            return GetAllUsers().FirstOrDefault(t => t.UserId == userId);
         }
 
         public UserModel Update(Guid userId)
         {
-            
+            throw new NotImplementedException();
         }
     }
 }

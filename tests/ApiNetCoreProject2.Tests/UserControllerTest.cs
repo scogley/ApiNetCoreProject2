@@ -19,16 +19,35 @@ namespace ApiNetCoreProject2.Tests
             _controller = new UserController(_service);
         }
 
+        public void AddTestUsers(int userCount)
+        {
+            for (int i = 0; i < userCount; i++)
+            {
+                UserModel user = new UserModel();
+                user.Email = $"testuser{userCount}@gmail.com";
+                user.Password = "foobar";
+                var newUser = _service.Add(user);
+            }
+        }
+
+        public UserModel AddTestUser()
+        {   
+            UserModel user = new UserModel();
+            user.Email = $"testuser@gmail.com";
+            user.Password = "foobar";
+            var newUser = _service.Add(user);
+            return newUser;
+        }
 
         [TestMethod]
         public void GetSpecific_WhenCalledWithInvalidGuid_ReturnsNotFound()
         {
-            // Arrange: do not add any users to db
+            // Arrange: do nothing. Do not add any users to "db".
             
             // Act: call Get {guid} 
             var result = (NotFoundObjectResult)_controller.Get(new System.Guid());
 
-            // Assert: 404 Not Found since there are no users in db
+            // Assert: 404 Not Found since there are no users in "db".
             Assert.AreEqual(result.StatusCode, new NotFoundObjectResult("guid").StatusCode);
         }
 
@@ -36,12 +55,8 @@ namespace ApiNetCoreProject2.Tests
         public void GetSpecific_WhenCalledWithValidGuid_ReturnsOk()
         {
             // Arrange: add new user directly using _service.Add() and retrieve the resulting UserId.
-            UserModel user = new UserModel();
-            user.Email = "smcogley@gmail.com";
-            user.Password = "foobar";
-            var newUser = _service.Add(user);
-            
-            
+            var newUser = AddTestUser();
+
             // Act: call Get {guid} and pass the valid UserId.
             var result = (OkObjectResult)_controller.Get(newUser.UserId);
 
@@ -52,17 +67,15 @@ namespace ApiNetCoreProject2.Tests
         }
 
         [TestMethod]
-        public void TestMethod1()
+        public void Get_WhenCalled_ReturnsListObject()
         {
-            // Arrange and Act
-            UserModel user1 = new UserModel();
-            user1.Email = "smcogley@gmail.com";
+            // Arrange: Add new users directly using _service.Add()
+            AddTestUsers(4);
 
-            UserModel user2 = new UserModel();
-            user2.Email = "smcogley@gmail.com";
-            
-            // Assert
-            Assert.AreEqual(user1.Email, user2.Email);
+            // Act: call Get
+            var result = _controller.Get();
+
+            result.Should().BeOfType<List<UserModel>>();
         }
     }
 }

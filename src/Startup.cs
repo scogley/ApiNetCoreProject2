@@ -31,6 +31,10 @@ namespace ApiNetCoreProject2
             {
                 options.Filters.Add<LoggingActionFilter>();
             });
+
+            services.AddSwaggerGen();
+            // This supports the JsonProperty names
+            services.AddSwaggerGenNewtonsoftSupport();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +44,12 @@ namespace ApiNetCoreProject2
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
             app.UseMvc();
         }

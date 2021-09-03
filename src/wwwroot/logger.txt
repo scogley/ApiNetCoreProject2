@@ -1,1 +1,3 @@
 ApiNetCoreProject2.Controllers.ValuesController : GET 9/2/2021 7:13:24 PM Elapsed=00:00:00.0148070
+ApiNetCoreProject2.Controllers.ValuesController : GET 9/2/2021 7:22:31 PM Elapsed=00:00:00.0236226
+ApiNetCoreProject2.Controllers.UserController : GET 9/2/2021 7:24:23 PM Elapsed=00:00:00.0342346

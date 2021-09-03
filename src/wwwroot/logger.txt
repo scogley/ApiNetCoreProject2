@@ -1,0 +1,1 @@
+ApiNetCoreProject2.Controllers.ValuesController : GET 9/2/2021 7:13:24 PM Elapsed=00:00:00.0148070

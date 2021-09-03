@@ -11,7 +11,7 @@
 *.sln.docstates
 
 # Logger file
-*logger.txt
+*.txt
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

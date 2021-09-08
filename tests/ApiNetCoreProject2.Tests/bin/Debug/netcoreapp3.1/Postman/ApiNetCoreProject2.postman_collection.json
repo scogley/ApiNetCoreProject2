@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "d19ac673-9b94-47a6-8e04-57fe9fa0850c",
+		"name": "ApiNetCoreProject2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ApiNetCoreProj}}/api/user",
+					"protocol": "http",
+					"host": [
+						"{{ApiNetCoreProj}}"
+					],
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET User {guid}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ApiNetCoreProj}}/api/user/286dde99-5934-4717-88a3-b91119bf1e1d",
+					"protocol": "http",
+					"host": [
+						"{{ApiNetCoreProj}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"286dde99-5934-4717-88a3-b91119bf1e1d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"email\": \"smcogley@google.com\",\r\n        \"password\": \"foobar\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ApiNetCoreProj}}/api/user",
+					"protocol": "http",
+					"host": [
+						"{{ApiNetCoreProj}}"
+					],
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT User {guid}",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"Email\": \"smcogley_edit@google.com\",\r\n    \"Password\": \"foobar_edit\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ApiNetCoreProj}}/api/user/4ad9904a-7fe4-4207-875b-16f76b5eeae0",
+					"protocol": "http",
+					"host": [
+						"{{ApiNetCoreProj}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"4ad9904a-7fe4-4207-875b-16f76b5eeae0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE User {guid}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ApiNetCoreProj}}/api/user/4b7cd9a1-acb8-40b3-9675-0349a9f7492e",
+					"protocol": "http",
+					"host": [
+						"{{ApiNetCoreProj}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"4b7cd9a1-acb8-40b3-9675-0349a9f7492e"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "ApiNetCoreProj",
+			"value": "localhost:61344"
+		}
+	]
+}
